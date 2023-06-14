@@ -1,10 +1,12 @@
+import time
+
+import allure
 import cerberus
 import pytest
-import allure
-from tests.tests_api.schemas import schema_price_info
-from keys import Futures_Secret_Key, Futures_API_Key
+
 from connectors.binance_futures import BinanceFuturesClient
-import time
+from keys import Futures_Secret_Key, Futures_API_Key
+from tests.tests_api.schemas import schema_price_info
 
 
 @allure.feature("API Tests")

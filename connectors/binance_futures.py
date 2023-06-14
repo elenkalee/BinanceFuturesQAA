@@ -1,9 +1,10 @@
-import time
-import requests
-import hmac
 import hashlib
+import hmac
+import time
 import typing
 from urllib.parse import urlencode
+
+import requests
 
 
 class BinanceFuturesClient:

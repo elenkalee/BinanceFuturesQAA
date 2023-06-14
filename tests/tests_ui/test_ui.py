@@ -1,10 +1,10 @@
 import time
 from csv import DictReader
+
 import allure
 
-from pages.LoginPage import LoginPage
 from pages.AccountPage import AccountPage
-
+from pages.LoginPage import LoginPage
 
 
 def get_cookies_values(file):
