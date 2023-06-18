@@ -1,6 +1,8 @@
 
 pipeline {
-    agent any
+    agent {
+        docker { image 'node:18.16.0-alpine' }
+    }
     environment {
         IMAGE_NAME="tests"
         CONTAINER_NAME="test_run"
