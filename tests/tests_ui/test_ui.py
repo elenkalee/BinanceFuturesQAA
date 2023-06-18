@@ -1,7 +1,7 @@
 import time
 from csv import DictReader
-
 import allure
+import pytest
 
 from pages.AccountPage import AccountPage
 from pages.LoginPage import LoginPage
@@ -24,13 +24,13 @@ class TestLoginPage:
         assert browser.title == "Log In | Binance"
         time.sleep(2)
 
+    @pytest.mark.a
     @allure.title("Test that account for authorized user is opened")
     def test_login_as_user(self, browser, base_url):
         """Add relevant cookies to file for authorized user to bypass Captcha"""
         ap = AccountPage(browser)
         ap.open_page(base_url)
-        cookies = get_cookies_values(
-            "/Users/elenalee/PycharmProjects/BinanceFuturesQAA/tests/tests_ui/testnet_cookies.csv")
+        cookies = get_cookies_values("tests/tests_ui/testnet_cookies.csv")
         for i in cookies:
             browser.add_cookie(i)
         browser.refresh()

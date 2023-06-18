@@ -6,6 +6,7 @@ import allure
 import pytest
 import requests
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options as ChromiumOptions
 
 
 @allure.step("Waiting for availability {url}")
@@ -26,7 +27,7 @@ def wait_url_data(url, timeout=10):
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
-    parser.addoption("--executor", action="store", default="localhost")
+    parser.addoption("--executor", action="store", default="selenoid")
     parser.addoption("--bversion", action="store", default="113.0")
     parser.addoption("--vnc", action="store_true", default=False)
     parser.addoption("--logs", action="store_true", default=False)
@@ -67,8 +68,10 @@ def browser(request):
     mobile = request.config.getoption("--mobile")
 
     if executor == "local":
+        options = ChromiumOptions()
+        options.add_argument("--headless=new")
         caps = {"goog:chromeOptions": {}}
-        driver = webdriver.Chrome(desired_capabilities=caps)
+        driver = webdriver.Chrome(options=options, desired_capabilities=caps)
     else:
         executor_url = f"http://{executor}:4444/wd/hub"
 
