@@ -21,6 +21,7 @@ jobs:
       uses: Xotabu4/selenoid-github-action@v2
     
     - uses: actions/checkout@v3
+
        
     - name: Build Docker
       run: docker build -t tests .
