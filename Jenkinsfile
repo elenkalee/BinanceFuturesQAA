@@ -1,7 +1,24 @@
 
+
 pipeline {
-    agent any
+  agent { label 'docker' }
+  environment {
+    PATH = "/hot/new/bin:$PATH"
+  }
+  stages {
+    stage ('build') {
+      steps {
+        echo "PATH is: $PATH"
+      }
+    }
+  }
+}
+
+
+pipeline {
+    agent { label 'docker' }
     environment {
+        PATH = "/hot/new/bin:$PATH"
         IMAGE_NAME="tests"
         CONTAINER_NAME="test_run"
     }
@@ -15,6 +32,7 @@ pipeline {
     }
         stage('Build') {
             steps {
+                echo "PATH is: $PATH"
                 git branch: 'main', url: 'https://github.com/elenkalee/BinanceFuturesQAA.git'
                 sh 'docker build -t $IMAGE_NAME .'
             }
