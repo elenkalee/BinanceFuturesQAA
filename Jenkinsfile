@@ -21,7 +21,7 @@ pipeline {
 //                 sh 'docker build -t $IMAGE_NAME .'
 //             }
                 steps {
-                    sh 'chmod +x setup.sh'
+                    sh 'chmod +x install.sh'
                     sh './install.sh'
             }
         }
