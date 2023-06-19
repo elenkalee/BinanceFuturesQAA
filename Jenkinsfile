@@ -8,12 +8,12 @@ pipeline {
 //     }
 
     stages {
-        stage('Checkout') {
-        steps {
-            checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/elenkalee/BinanceFuturesQAA.git']]])
-            sh 'ls -l'
-        }
-    }
+//         stage('Checkout') {
+//         steps {
+//             checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/elenkalee/BinanceFuturesQAA.git']]])
+//             sh 'ls -l'
+//         }
+//     }
         stage('Build') {
 //             steps {
 //                 echo "PATH is: $PATH"
