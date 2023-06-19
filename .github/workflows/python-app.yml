@@ -20,10 +20,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Starting Selenoid Server (aerokube/selenoid) within actions
-  # You may pin to the exact commit or the version.
-  # uses: ajinx/selenoid@a717ac4e12ebad3b3cc8ca5c584fe57ff1a9460b
-      uses: ajinx/selenoid@2.0
+    - name: Start Selenoid Server
+      # You may pin to the exact commit or the version.
+      # uses: Xotabu4/selenoid-github-action@5c643de195faeead3c7796ffb3ed5135e5f595bf
+      uses: Xotabu4/selenoid-github-action@v2
+      with:
+        # Additional arguments to be added for "./cm selenoid start" command. See full list in readme.md
+        selenoid-start-arguments: default # optional, default is --browsers 'chrome' --last-versions 1
+
        
     - name: Build Docker
       run: docker build -t tests .
