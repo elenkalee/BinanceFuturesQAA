@@ -1,20 +1,4 @@
 
-
-pipeline {
-  agent { label 'docker' }
-  environment {
-    PATH = "/hot/new/bin:$PATH"
-  }
-  stages {
-    stage ('build') {
-      steps {
-        echo "PATH is: $PATH"
-      }
-    }
-  }
-}
-
-
 pipeline {
     agent { label 'docker' }
     environment {
