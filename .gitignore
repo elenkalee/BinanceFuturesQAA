@@ -165,5 +165,4 @@ tests/.DS_Store
 /tests/tests_ui/allure-results/
 /tests/tests_api/allure-results/
 examples.py
-install.sh
 
